@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-.centered {
-  text-align: center;
+.bg-light {
+  background-color: #f4f8ff !important;
 }
