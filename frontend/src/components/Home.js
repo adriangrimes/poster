@@ -1,43 +1,53 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import LoginForm from './LoginForm';
+
+import LogInOrSignUp from './LogInOrSignUp';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-let Home = () => (
-  <>
-    <Row className="justify-content-center">
-      <Col
-        xs={12}
-        sm={8}
-        md={6}
-        className="border border-rounded shadow-lg p-3 mb-5 bg-light rounded"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </Col>
-    </Row>
-    <Row className="justify-content-center">
-      <Col
-        xs={12}
-        sm={6}
-        md={4}
-        className="border border-rounded shadow-lg p-3 mb-5 bg-light rounded"
-      >
-        <LoginForm />
-      </Col>
-    </Row>
-    <Row className="justify-content-center text-center">
-      <Col xs={12} sm={6} md={4}>
+export default function Home(props) {
+  return (
+    <div className="home-wrapper faded-branded-gradient py-4">
+      <Row className="site-banner branded-gradient no-gutters mt-2 mb-5 p-3 ">
+        <Col className="site-banner-text text-center text-light m-0">
+          Poster
+        </Col>
+      </Row>
+      <Row className="no-gutters justify-content-center p-4">
+        <Col
+          xs={12}
+          sm={10}
+          md={6}
+          className="mb-5 p-4 border-secondary border-top border-bottom"
+        >
+          <div>
+            Poster is a simple social media planning app for micro businesses.
+            Take control of your social marketing and grow your business with
+            our easy tools.
+          </div>
+        </Col>
+      </Row>
+      <Row className="no-gutters mx-0">
+        <Col xs={12} className="d-flex justify-content-center mb-3">
+          <LogInOrSignUp />
+        </Col>
+      </Row>
+      <Row className="no-gutters mx-0 justify-content-center text-center">
         <Link to="help">Help</Link>
-      </Col>
-    </Row>
-  </>
-);
-
-export default Home;
+      </Row>
+      <Row className="no-gutters mx-0 justify-content-center text-center text-muted py-5">
+        <small>
+          built by&nbsp;
+          <a
+            href="https://www.linkedin.com/in/grimesadrian"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            adrian
+          </a>
+        </small>
+      </Row>
+      <img className="brand-logo" src="logogrey.svg" alt="" />
+    </div>
+  );
+}

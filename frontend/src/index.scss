@@ -1,0 +1,296 @@
+$border-radius: 0.15rem;
+
+/* Colors */
+$primary: #3d3041;
+$secondary: #8a4f58;
+
+$faded-gradient-alpha: 0.2;
+$faded-primary: rgba($primary, $faded-gradient-alpha);
+$faded-secondary: rgba($secondary, $faded-gradient-alpha);
+
+$extra-faded-gradient-alpha: 0.1;
+$extra-faded-primary: rgba($primary, $extra-faded-gradient-alpha);
+$extra-faded-secondary: rgba($secondary, $extra-faded-gradient-alpha);
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+
+body {
+  background-color: #fff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Home */
+
+.home-wrapper {
+  min-height: 100vh;
+}
+
+.branded-gradient {
+  background: $primary;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $secondary, $primary);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $secondary, $primary);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $secondary, $primary);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $secondary, $primary);
+  /* Standard syntax */
+}
+
+.faded-branded-gradient {
+  background: $faded-primary;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $faded-secondary, $faded-primary);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $faded-secondary, $faded-primary);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $faded-secondary, $faded-primary);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $faded-secondary, $faded-primary);
+  /* Standard syntax */
+}
+
+.site-banner {
+  box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.4);
+}
+
+.site-banner-text {
+  font-family: "Righteous", sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+}
+
+.login-signup-form {
+  max-width: 300px;
+}
+
+.login-signup-form .tab-content {
+  padding: 1rem;
+}
+
+.brand-logo {
+  position: fixed;
+  top: 40vh;
+  left: 60vw;
+  width: 40rem;
+  height: auto;
+  z-index: -1;
+}
+
+/* DashboardLayout */
+
+.app-wrapper {
+  width: 850px;
+}
+@media (max-width: 890px) {
+  .app-wrapper {
+    width: auto;
+  }
+}
+
+.app-content {
+  margin-left: 250px;
+  min-height: 100vh;
+}
+@media (max-width: 600px) {
+  .app-content {
+    margin-left: 0px;
+  }
+}
+
+/* Menu Bar */
+
+.menu-bar {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 250px;
+  padding: 0.5rem;
+  transition: all 0.2s;
+  z-index: 6;
+}
+
+.menu-bar.active {
+  margin-left: -250px;
+}
+
+@media (max-width: 600px) {
+  .menu-bar {
+    margin-left: -250px;
+    transition: all 0.2s;
+  }
+  .menu-bar.active {
+    margin-left: 0;
+  }
+}
+
+.menu-button {
+  height: 100%;
+  border-radius: 0px;
+}
+
+.menu-button.active.focus,
+.menu-button.active:focus,
+.menu-button.focus,
+.menu-button:active.focus,
+.menu-button:active:focus,
+.menu-button:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.menu-button-image {
+  height: 25px;
+  width: auto;
+  vertical-align: middle;
+}
+
+.close-menu-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  background-color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 0;
+}
+
+.twitter-handles {
+  line-height: 1.25;
+}
+
+.template-add-instructions {
+  cursor: default;
+}
+
+/* Scheduler */
+
+.thick-bottom-border {
+  border-bottom: 10px solid #e4e4e4;
+}
+
+.file-uploader {
+  // height: 90px;
+  // width: 300px;
+  border: 3px dashed $secondary;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+.upload-more {
+  font-size: 3rem;
+  height: 2rem;
+  line-height: 0.4;
+}
+
+.upload-thumbnail {
+  object-fit: cover;
+  width: 4rem;
+  height: 4rem;
+}
+
+/* React DateTimePicker overrides */
+.react-datetime-picker__wrapper {
+  padding: 0.25rem;
+  border-radius: $border-radius;
+  border: 1px solid #dee2e6 !important;
+  min-width: 250px;
+}
+.react-datetime-picker__calendar {
+  z-index: 5 !important;
+}
+
+/* Scheduler posts */
+
+.feed-post {
+  position: relative;
+  color: #4b4b4b;
+  line-height: 1.5;
+}
+.feed-post:hover {
+  background-color: $extra-faded-secondary;
+}
+
+.feed-post-gradient {
+  background: $extra-faded-primary;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(
+    left,
+    $extra-faded-secondary,
+    $extra-faded-primary
+  );
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(
+    right,
+    $extra-faded-secondary,
+    $extra-faded-primary
+  );
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    $extra-faded-secondary,
+    $extra-faded-primary
+  );
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(
+    to right,
+    $extra-faded-secondary,
+    $extra-faded-primary
+  );
+  /* Standard syntax */
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.caption:hover {
+  background-color: #f5f9ffff;
+}
+
+.hashtags:hover {
+  background-color: #f5f9ffff;
+}
+
+.delete-post-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  font-weight: bold;
+}
+.delete-post-button:hover {
+  color: red;
+}
+
+.now-line {
+  line-height: 1;
+}
+
+/* Account Settings */
+
+.account-settings-gear {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Help */

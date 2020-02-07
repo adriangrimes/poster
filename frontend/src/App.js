@@ -1,23 +1,34 @@
 import React from 'react';
-import './index.css';
-import { Router /*, Link*/ } from '@reach/router';
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import Dashboard from './components/Dashboard';
-import Help from './components/Help';
-import Container from 'react-bootstrap/Container';
+import { Router } from '@reach/router';
+import { ScrollToTop } from './components/ScrollToTop';
 
-export default function App() {
-  return (
-    <>
-      <NavBar />
-      <Container fluid={true} className="py-5">
-        <Router>
+import Home from './components/Home';
+import Scheduler from './components/Scheduler';
+import AccountSettings from './components/AccountSettings';
+import Help from './components/Help';
+import NotFound from './components/NotFound';
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Router primary={true}>
+        <ScrollToTop path="/">
           <Home path="/" />
-          <Dashboard path="dashboard" />
           <Help path="help" />
-        </Router>
-      </Container>
-    </>
-  );
+
+          {/* Account routes */}
+          <Scheduler path="scheduler" />
+          <AccountSettings path="settings" />
+
+          {/* 404 */}
+          <NotFound default />
+        </ScrollToTop>
+      </Router>
+    );
+  }
 }
