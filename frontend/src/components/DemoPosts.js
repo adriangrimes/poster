@@ -28,7 +28,7 @@ let DemoPosts = [
     caption:
       'Excited to see what the farmers market has for me today! Maybe some tasty jam or fresh apricots, mmmmm',
     hashtags: '#shopping #farmersmarket #blessed',
-    datetime: new Date(new Date().getTime() + 30000),
+    datetime: new Date(new Date().getTime() + 15000),
     mediaUploads: [{ src: '/uploads/market.jpg', alt: 'Your Uploaded Photo' }],
     uniqueId: Math.random()
       .toString(36)
@@ -40,7 +40,7 @@ let DemoPosts = [
     caption:
       'Another Throwback for all my long time followers, remember these days?',
     hashtags: '#throwbackthursday #wishiwasthere #photographylovers #nature',
-    datetime: new Date(new Date().getTime() + 60000),
+    datetime: new Date(new Date().getTime() + 30000),
     mediaUploads: [{ src: '/uploads/hike4.jpg', alt: 'Your Uploaded Photo' }],
     uniqueId: Math.random()
       .toString(36)

@@ -16,19 +16,27 @@ $extra-faded-secondary: rgba($secondary, $extra-faded-gradient-alpha);
 @import "~bootstrap/scss/bootstrap.scss";
 
 body {
-  background-color: #fff;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.scroll-to-top {
+  background-color: $secondary;
+  color: white;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  animation: fadeIn 300ms ease-in-out 300ms both;
+  cursor: pointer;
+  border-radius: $border-radius;
+  padding: 0.25rem;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Home */
@@ -91,10 +99,19 @@ code {
   z-index: -1;
 }
 
+/* MainLayout */
+
+.main-content {
+  max-width: 600px;
+  min-height: 100vh;
+  background-color: $white;
+}
+
 /* DashboardLayout */
 
 .app-wrapper {
   width: 850px;
+  margin-bottom: 6.5rem;
 }
 @media (max-width: 890px) {
   .app-wrapper {
@@ -120,7 +137,6 @@ code {
   top: 0;
   min-height: 100vh;
   width: 250px;
-  padding: 0.5rem;
   transition: all 0.2s;
   z-index: 6;
 }
@@ -173,6 +189,13 @@ code {
   line-height: 0;
 }
 
+.menu-bar-link {
+  font-size: 1.2rem;
+}
+.menu-bar-link:hover {
+  background-color: $gray-100;
+}
+
 .twitter-handles {
   line-height: 1.25;
 }
@@ -183,22 +206,40 @@ code {
 
 /* Scheduler */
 
-.thick-bottom-border {
-  border-bottom: 10px solid #e4e4e4;
-}
-
 .file-uploader {
-  // height: 90px;
-  // width: 300px;
+  min-height: 90px;
+  width: 100%;
+  // max-width: 303px;
   border: 3px dashed $secondary;
   border-radius: $border-radius;
   cursor: pointer;
 }
 
+.upload-thumbnail-container {
+  position: relative;
+}
+
+.upload-thumbnail-remove {
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 0;
+  background-color: #00000088;
+  height: 40%;
+  width: 40%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+}
+.upload-thumbnail-remove:hover {
+  color: red;
+}
+
 .upload-more {
   font-size: 3rem;
-  height: 2rem;
   line-height: 0.4;
+  width: 4rem;
+  height: 4rem;
 }
 
 .upload-thumbnail {
@@ -208,14 +249,25 @@ code {
 }
 
 /* React DateTimePicker overrides */
+// .react-datetime-picker {
+//   width: 100%;
+// }
 .react-datetime-picker__wrapper {
   padding: 0.25rem;
   border-radius: $border-radius;
   border: 1px solid #dee2e6 !important;
-  min-width: 250px;
+  width: 250px;
 }
 .react-datetime-picker__calendar {
   z-index: 5 !important;
+}
+
+.template-name-field {
+  max-width: 200px;
+}
+
+.char-limit-display {
+  min-width: 75px;
 }
 
 /* Scheduler posts */
@@ -224,6 +276,7 @@ code {
   position: relative;
   color: #4b4b4b;
   line-height: 1.5;
+  word-break: break-word;
 }
 .feed-post:hover {
   background-color: $extra-faded-secondary;
@@ -287,10 +340,5 @@ code {
 }
 
 /* Account Settings */
-
-.account-settings-gear {
-  height: 1.5rem;
-  width: 1.5rem;
-}
 
 /* Help */

@@ -24,6 +24,7 @@ export default class Scheduler extends React.Component {
   }
 
   componentDidMount = () => {
+    this.checkAndUpdatePostStatus();
     this.postCheckInterval = setInterval(() => {
       this.checkAndUpdatePostStatus();
     }, 5000);
@@ -99,7 +100,7 @@ export default class Scheduler extends React.Component {
             ))}
           </TemplateManager>
         }
-        contentHeader="Your scheduled posts"
+        contentHeader="Post Scheduler"
       >
         <PostCreator
           maxPostCharacters={280}
@@ -108,6 +109,9 @@ export default class Scheduler extends React.Component {
           createPostTemplate={this.addPostTemplate}
           templateToApply={this.state.templateToApply}
         />
+        <div className="d-flex align-items-center justify-content-start branded-gradient text-light m-0 border-bottom">
+          <h6 className="m-0 pl-3 py-2">Your Posts</h6>
+        </div>
         <PostList
           scheduledPosts={this.state.scheduledPosts}
           deleteScheduledPost={this.deleteScheduledPost}

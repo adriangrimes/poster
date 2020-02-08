@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
+import Button from 'react-bootstrap/Button';
+
 export default function FileUploader(props) {
   const onDrop = useCallback(
     acceptedFiles => {
@@ -30,22 +32,43 @@ export default function FileUploader(props) {
     const images = [
       ...props.files.map((image, index) => {
         return (
+          <span
+            className="d-inline-block upload-thumbnail-container "
+            key={image.src}
+          >
+            <Button
+              variant="default"
+              className="upload-thumbnail-remove rounded-circle p-1 m-2"
+              onClick={e => {
+                e.stopPropagation();
+                props.removeFile(image);
+              }}
+            >
+              ✕
+            </Button>
+            <img
+              className="upload-thumbnail rounded-lg m-1"
+              src={image.src}
+              alt={image.alt}
+            />
+          </span>
+        );
+      })
+    ];
+    if (props.files.length < props.maxFiles) {
+      images.push(
+        <span
+          className="d-inline-block upload-thumbnail-container "
+          key="add-upload"
+        >
           <img
             className="upload-thumbnail rounded-lg m-1"
-            src={image.src}
-            alt={image.alt}
-            key={image.src}
-            onClick={e => {
-              e.stopPropagation();
-              props.removeFile(image);
-            }}
+            src="add.svg"
+            alt="Add another upload"
           />
-        );
-      }),
-      <div key="upload-more" className="upload-more">
-        +
-      </div>
-    ];
+        </span>
+      );
+    }
     uploaderContents = images;
   } else if (isDragActive) {
     uploaderContents = 'Drop to add...';
@@ -54,7 +77,7 @@ export default function FileUploader(props) {
   return (
     <div
       {...getRootProps()}
-      className="file-uploader d-inline-flex justify-content-center align-items-center p-1"
+      className={`file-uploader d-inline-flex justify-content-center align-items-center p-1 ${props.className}`}
     >
       <input {...getInputProps()} />
       <div className="text-center">{uploaderContents}</div>

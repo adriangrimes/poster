@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import MainLayout from './MainLayout';
 
+import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -34,9 +36,9 @@ export default function Help(props) {
     {
       question: 'How do I use a template?',
       answer:
-        'On your dashboard any templates you have saved will appear in the side bar on the left of the screen on desktop. On mobile use the menu button at the top of the screen to open the menu-bar.',
+        'On your dashboard any templates you have saved will appear in the side bar on the left of the screen on desktop. On mobile use the menu button at the top of the screen to open the menubar.',
       answer2:
-        'Click the template name you would like  to use, and the information will automatically fill in the scheduled post form for you to finalize and schedule the post. You can delete a template by clicking the X next to the template name in the menu-bar.'
+        'Click the template name you would like to use, and the information will automatically fill in the scheduled post form for you to finalize and schedule the post. You can delete a template by clicking the X next to the template name in the menubar.'
     },
     {
       question: 'Do I have to include hashtags?',
@@ -68,8 +70,25 @@ export default function Help(props) {
   };
 
   return (
-    <>
-      <div className="p-3">
+    <MainLayout contentHeader="Help">
+      <ListGroup className="mb-4">
+        {helpTopics.map((topic, index) => {
+          return (
+            <ListGroup.Item
+              action
+              className="pl-3 p-2"
+              href={'#topic' + (index + 1)}
+              key={index}
+            >
+              {topic.question}
+            </ListGroup.Item>
+          );
+        })}
+        <ListGroup.Item action href="#contact-us" className="pl-3 p-2 bg-gray">
+          <strong>Still have questions? Contact us!</strong>
+        </ListGroup.Item>
+      </ListGroup>
+      <div>
         {helpTopics.map((topic, index) => {
           return (
             <div className="mb-4" key={index} id={'topic' + (index + 1)}>
@@ -81,6 +100,7 @@ export default function Help(props) {
           );
         })}
       </div>
+      <hr className="mt-5" />
       <div className="p-4">
         <h5 id="contact-us">Contact us</h5>
         <div>
@@ -113,6 +133,6 @@ export default function Help(props) {
           </Form>
         </div>
       </div>
-    </>
+    </MainLayout>
   );
 }

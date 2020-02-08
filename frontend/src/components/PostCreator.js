@@ -50,6 +50,11 @@ export default class PostCreator extends React.Component {
     this.setState(newState, () => {
       // send a copy of the state
       this.props.createPost(Object.assign({}, this.state));
+      this.setState({
+        caption: '',
+        hashtags: '',
+        mediaUploads: []
+      });
     });
   };
 
@@ -63,6 +68,7 @@ export default class PostCreator extends React.Component {
       () => {
         // create a new object with the component state
         this.props.createPostTemplate(Object.assign({}, this.state));
+        this.setState({ templateName: '' });
       }
     );
   };
@@ -103,10 +109,28 @@ export default class PostCreator extends React.Component {
     const postOverCharLimitClass =
       charactersUsed > this.props.maxPostCharacters ? 'text-danger' : '';
     const postInThePast = new Date() > this.state.datetime;
+    const postDisabled =
+      charactersUsed > 0 && charactersUsed <= this.props.maxPostCharacters
+        ? false
+        : true;
+    const templateAddDisabled = this.state.templateName.length < 1;
     return (
-      <div className="thick-bottom-border">
-        <Form onSubmit={this.createPost} className="p-2">
-          <Form.Group controlId="formCaption" className="mb-2">
+      <div className="p-2">
+        <div className="d-flex flex-wrap justify-content-end align-items-center">
+          <span className="mr-2 text-strong">Pick a date and time</span>
+          <DateTimePicker
+            required={true}
+            value={this.state.datetime}
+            onChange={datetime => {
+              this.setState({ datetime: datetime });
+            }}
+            disableClock={true}
+            maxDate={this.maxDate}
+            minDetail="decade"
+          />
+        </div>
+        <Form onSubmit={this.createPost}>
+          <Form.Group controlId="formCaption" className="m-0 mt-2">
             <Form.Control
               name="caption"
               type="text"
@@ -117,7 +141,7 @@ export default class PostCreator extends React.Component {
               onChange={this.handleInputChange}
             />
           </Form.Group>
-          <Form.Group controlId="formHashtags" className="mb-2">
+          <Form.Group controlId="formHashtags" className="m-0 mt-2">
             <Form.Control
               name="hashtags"
               type="text"
@@ -126,52 +150,45 @@ export default class PostCreator extends React.Component {
               onChange={this.handleInputChange}
             />
           </Form.Group>
-          <div className="pb-2">
-            <FileUploader
-              addFiles={this.addFiles}
-              removeFile={this.removeFile}
-              files={this.state.mediaUploads}
-            />
-            <DateTimePicker
-              required={true}
-              value={this.state.datetime}
-              onChange={datetime => {
-                this.setState({ datetime: datetime });
-              }}
-              disableClock={true}
-              maxDate={this.maxDate}
-              minDetail="decade"
-            />
-            <div className={postOverCharLimitClass}>
+          <FileUploader
+            addFiles={this.addFiles}
+            removeFile={this.removeFile}
+            files={this.state.mediaUploads}
+            maxFiles={this.props.maxUploads}
+            className="mt-2"
+          />
+
+          <div className="d-flex justify-content-between align-items-center">
+            <InputGroup className="mt-2">
+              <FormControl
+                value={this.state.templateName}
+                onChange={this.handleInputChange}
+                name="templateName"
+                placeholder="Template name"
+                aria-label="Template name"
+                aria-describedby="Template name"
+                className="template-name-field"
+              />
+              <InputGroup.Append>
+                <Button
+                  variant="secondary"
+                  disabled={templateAddDisabled}
+                  onClick={this.savePostAsTemplate}
+                >
+                  <strong>+</strong>
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+            <div
+              className={`char-limit-display text-center mx-2 mt-2 p-1 ${postOverCharLimitClass}`}
+            >
               {charactersUsed} / {this.props.maxPostCharacters}
-            </div>
-          </div>
-          <div className="d-flex justify-content-between">
-            <div className="">
-              <InputGroup className="">
-                <FormControl
-                  value={this.state.templateName}
-                  onChange={this.handleInputChange}
-                  name="templateName"
-                  placeholder="Template name"
-                  aria-label="Template name"
-                  aria-describedby="Template name"
-                />
-                <InputGroup.Append>
-                  <Button
-                    className="mr-2 "
-                    variant="secondary"
-                    onClick={this.savePostAsTemplate}
-                  >
-                    +
-                  </Button>
-                </InputGroup.Append>
-              </InputGroup>
             </div>
             <Button
               variant={postInThePast ? 'secondary' : 'primary'}
               type="submit"
-              className="rounded-pill"
+              disabled={postDisabled}
+              className="rounded-pill mt-2"
             >
               <span className="d-inline-block text-nowrap">
                 {postInThePast && 'Post now!'}

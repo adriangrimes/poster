@@ -7,9 +7,7 @@ import ContentHeader from './ContentHeader';
 export default class DashboardLayout extends React.Component {
   constructor(props) {
     super(props);
-
     this.menuBarRef = React.createRef();
-
     this.state = {
       menuOpen: false
     };

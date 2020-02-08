@@ -77,7 +77,9 @@ export default class ScheduledPost extends React.Component {
     return (
       <div
         className={`feed-post border-bottom p-2 ${
-          this.props.post.pendingPost ? 'feed-post-gradient border-white' : ''
+          this.props.post.pendingPost
+            ? 'feed-post-gradient border-white'
+            : 'text-muted'
         }`}
       >
         <Button
@@ -98,8 +100,10 @@ export default class ScheduledPost extends React.Component {
             />
           </div>
           <div className="mx-2 w-100">
-            <strong>{this.props.socialUsername}</strong>&nbsp;
-            <span className="text-muted">{this.props.socialHandle}</span>
+            <div className="text-truncate">
+              <strong>{this.props.socialUsername}</strong>&nbsp;
+              <span className="text-muted">{this.props.socialHandle}</span>
+            </div>
             <p
               className={`m-0 pb-3 ${!this.props.post.pendingPost &&
                 'text-muted'}`}
@@ -144,26 +148,23 @@ export default class ScheduledPost extends React.Component {
               </Overlay>
             </p>
             <div>{images}</div>
-            <div className="text-right m-0">
-              {!this.props.post.pendingPost && 'Posted '}
-              {this.props.post.pendingPost &&
-                'Posts ' +
-                  moment(this.props.post.datetime).fromNow() +
-                  ' – ' +
-                  moment(this.props.post.datetime).format('ddd') +
-                  ', '}
-              {this.props.post &&
-                this.props.post.datetime &&
-                this.props.post.datetime.toLocaleDateString('default', {
-                  month: 'short',
-                  day: 'numeric',
-                  year: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  hour12: true
-                })}
-            </div>
           </div>
+        </div>
+        <div className="text-right mt-3">
+          {!this.props.post.pendingPost && 'Posted '}
+          {this.props.post.pendingPost &&
+            'Posts ' + moment(this.props.post.datetime).fromNow()}
+          <br />
+          {moment(this.props.post.datetime).format('ddd') +
+            ', ' +
+            this.props.post.datetime.toLocaleDateString('default', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true
+            })}
         </div>
       </div>
     );

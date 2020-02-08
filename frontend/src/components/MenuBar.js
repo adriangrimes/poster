@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import NavLink from './NavLink';
 
+import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
 export default function MenuBar({
@@ -11,7 +12,7 @@ export default function MenuBar({
   children
 }) {
   return (
-    <nav
+    <div
       id="menu-bar"
       className={`menu-bar border-right ${menuOpen ? 'active' : ''}`}
     >
@@ -26,7 +27,7 @@ export default function MenuBar({
         </Button>
       )}
 
-      <div className="d-flex">
+      <div className="d-flex m-2 ">
         <img
           src="avatar.jpg"
           height="50"
@@ -34,27 +35,38 @@ export default function MenuBar({
           className="avatar rounded-circle"
           alt="avatar"
         />
-        <div className="twitter-handles mb-4 p-1">
+        <div className="twitter-handles p-1">
           <strong>{social.username}</strong>
           <div className="text-muted">{social.handle}</div>
         </div>
       </div>
 
-      <ul className="list-unstyled mb-5">
-        <li className="border-top border-bottom">
-          <Link to="/scheduler">Scheduler</Link>
-        </li>
-        <li className="border-bottom">
-          <Link to="/help">Help</Link>
-        </li>
-        <li className="border-bottom">
-          <Link to="/settings">Account Settings</Link>
-        </li>
-        <li className="border-bottom">
-          <Link to="/">Log out</Link>
-        </li>
-      </ul>
+      <nav>
+        <ListGroup variant="flush">
+          <NavLink to="/scheduler" className="text-decoration-none">
+            <ListGroup.Item className="menu-bar-link border-top border-bottom">
+              Scheduler
+            </ListGroup.Item>
+          </NavLink>
+          <NavLink to="/settings" className="text-decoration-none">
+            <ListGroup.Item className="menu-bar-link border-bottom">
+              Account Settings
+            </ListGroup.Item>
+          </NavLink>
+          <NavLink to="/help" className="text-decoration-none">
+            <ListGroup.Item className="menu-bar-link border-bottom">
+              Help
+            </ListGroup.Item>
+          </NavLink>
+          <NavLink to="/" className="text-decoration-none">
+            <ListGroup.Item className="menu-bar-link border-bottom">
+              Log out
+            </ListGroup.Item>
+          </NavLink>
+        </ListGroup>
+      </nav>
+
       {children}
-    </nav>
+    </div>
   );
 }
