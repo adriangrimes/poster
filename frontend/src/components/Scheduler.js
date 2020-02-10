@@ -4,7 +4,7 @@ import { AccountContext } from './AccountContext';
 import DashboardLayout from './DashboardLayout';
 import PostCreator from './PostCreator';
 import PostList from './PostList';
-import TemplateManager from './TemplateManager';
+import PostTemplateManager from './PostTemplateManager';
 import PostTemplate from './PostTemplate';
 
 // Demo posts
@@ -50,11 +50,10 @@ export default class Scheduler extends React.Component {
     });
   };
 
-  addScheduledPost = postState => {
-    const scheduledPosts = []
-      .concat(this.state.scheduledPosts)
-      .concat(postState)
-      .sort((a, b) => a.datetime - b.datetime);
+  addScheduledPostAndSort = postState => {
+    const scheduledPosts = [...this.state.scheduledPosts, postState].sort(
+      (a, b) => a.datetime - b.datetime
+    );
     this.setState({
       scheduledPosts: scheduledPosts,
       templateToApply: null
@@ -74,7 +73,9 @@ export default class Scheduler extends React.Component {
   };
 
   applyPostTemplate = template => {
-    this.setState({ templateToApply: template });
+    this.setState({ templateToApply: template }, () => {
+      this.setState({ templateToApply: null });
+    });
   };
 
   removePostTemplate = id => {
@@ -88,24 +89,25 @@ export default class Scheduler extends React.Component {
   render() {
     return (
       <DashboardLayout
-        menuBarExtras={
-          <TemplateManager>
+        menuBarExtras={closeMenu => (
+          <PostTemplateManager>
             {this.state.postTemplates.map(template => (
               <PostTemplate
                 template={template}
                 key={template.uniqueId}
                 removePostTemplate={this.removePostTemplate}
                 applyPostTemplate={this.applyPostTemplate}
+                closeMenu={closeMenu}
               />
             ))}
-          </TemplateManager>
-        }
+          </PostTemplateManager>
+        )}
         contentHeader="Post Scheduler"
       >
         <PostCreator
           maxPostCharacters={280}
           maxUploads={4}
-          createPost={this.addScheduledPost}
+          createPost={this.addScheduledPostAndSort}
           createPostTemplate={this.addPostTemplate}
           templateToApply={this.state.templateToApply}
         />

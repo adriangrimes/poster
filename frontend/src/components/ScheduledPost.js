@@ -34,7 +34,7 @@ export default class ScheduledPost extends React.Component {
     this.captionTooltipTimeout = setTimeout(() => {
       this.setState({ showCaptionCopyTooltip: false });
     }, 2000);
-    this.copyText(this.captionInputRef);
+    this.copyTextToClipboard(this.captionInputRef);
   };
 
   hashtagsClick = () => {
@@ -42,10 +42,12 @@ export default class ScheduledPost extends React.Component {
     this.hashtagTooltipTimeout = setTimeout(() => {
       this.setState({ showHashtagCopyTooltip: false });
     }, 2000);
-    this.copyText(this.hashtagsInputRef);
+    this.copyTextToClipboard(this.hashtagsInputRef);
   };
 
-  copyText = ref => {
+  // highlights text contents of passed element reference, copies to clipboard,
+  // and then deselects the text
+  copyTextToClipboard = ref => {
     let range = document.createRange();
     range.selectNodeContents(ref.current);
     let sel = window.getSelection();
@@ -55,25 +57,27 @@ export default class ScheduledPost extends React.Component {
     sel.removeAllRanges();
   };
 
-  render() {
-    let images = [];
-    if (this.props.post && this.props.post.mediaUploads) {
-      images = this.props.post.mediaUploads.map(image => {
+  createUploadThumbnails = uploads => {
+    if (uploads.length) {
+      return uploads.map(upload => {
         return (
           <img
             className="upload-thumbnail rounded-lg m-1"
-            src={image.src}
+            src={upload.src}
             height="50"
             width="50"
-            alt={image.alt}
-            key={image.src}
+            alt={upload.alt}
+            key={upload.src}
             onClick={e => {
-              console.log('image clicked');
+              console.log('upload clicked');
             }}
           />
         );
       });
-    }
+    } else return null;
+  };
+
+  render() {
     return (
       <div
         className={`feed-post border-bottom p-2 ${
@@ -84,7 +88,7 @@ export default class ScheduledPost extends React.Component {
       >
         <Button
           variant="default"
-          className="delete-post-button m-1 p-1"
+          className="delete-post-button mr-1 p-1"
           onClick={() => this.props.deletePost(this.props.post.uniqueId)}
         >
           ✕
@@ -92,7 +96,7 @@ export default class ScheduledPost extends React.Component {
         <div className="d-flex">
           <div className="ml-2 pt-1">
             <img
-              src="avatar.jpg"
+              src="uploads/avatar.jpg"
               height="50"
               width="50"
               className="avatar rounded-circle"
@@ -147,11 +151,13 @@ export default class ScheduledPost extends React.Component {
                 )}
               </Overlay>
             </p>
-            <div>{images}</div>
+            <div>
+              {this.createUploadThumbnails(this.props.post.mediaUploads)}
+            </div>
           </div>
         </div>
         <div className="text-right mt-3">
-          {!this.props.post.pendingPost && 'Posted '}
+          {!this.props.post.pendingPost && <strong>Posted</strong>}
           {this.props.post.pendingPost &&
             'Posts ' + moment(this.props.post.datetime).fromNow()}
           <br />

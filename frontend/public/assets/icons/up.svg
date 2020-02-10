@@ -8,7 +8,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="30"
@@ -28,15 +27,6 @@
          offset="0"
          id="stop4552" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4554"
-       id="linearGradient4556"
-       x1="3.3621667"
-       y1="283.50288"
-       x2="21.127042"
-       y2="283.50288"
-       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -46,8 +36,8 @@
      inkscape:pageopacity="0.74509804"
      inkscape:pageshadow="2"
      inkscape:zoom="22.4"
-     inkscape:cx="19.26839"
-     inkscape:cy="9.7617489"
+     inkscape:cx="12.013926"
+     inkscape:cy="13.333177"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -66,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -78,10 +68,10 @@
     <g
        id="g4548"
        transform="matrix(0.22446382,0,0,0.22446382,1.2202793,229.39511)"
-       style="fill-opacity:1;fill:url(#linearGradient4556)">
+       style="fill-opacity:1;fill:#ffffff">
       <rect
          transform="rotate(-45)"
-         style="stroke-width:0.26458332;fill-opacity:1;fill:url(#linearGradient4556)"
+         style="stroke-width:0.26458332;fill-opacity:1;fill:#ffffff"
          y="204.98238"
          x="-200.22755"
          height="4.0090427"
@@ -93,7 +83,7 @@
          height="4.0090427"
          x="204.98238"
          y="187.66589"
-         style="stroke-width:0.26458332;fill-opacity:1;fill:url(#linearGradient4556)"
+         style="stroke-width:0.26458332;fill-opacity:1;fill:#ffffff"
          transform="rotate(45)" />
     </g>
   </g>

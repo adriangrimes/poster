@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'react-bootstrap/Button';
 
-export default function ContentHeader({
+export default function HeaderWithMenuButton({
   isSmallScreen,
   toggleMenu,
   contentHeader
@@ -16,7 +16,7 @@ export default function ContentHeader({
         >
           <img
             className="menu-button-image"
-            src="menuicon.svg"
+            src="assets/icons/menuicon.svg"
             alt="Toggle menu"
           />
         </Button>

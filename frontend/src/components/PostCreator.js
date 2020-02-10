@@ -1,7 +1,7 @@
 import React from 'react';
+
 import DateTimePicker from 'react-datetime-picker';
 import FileUploader from './FileUploader';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -26,7 +26,7 @@ export default class PostCreator extends React.Component {
     );
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = prevProps => {
     // if there is a template to apply, and there wasn't already a template...
     if (
       this.props.templateToApply &&
@@ -35,20 +35,19 @@ export default class PostCreator extends React.Component {
       // set the state to the template
       this.setState({ ...this.props.templateToApply });
     }
-  }
+  };
 
   createPost = e => {
     e.preventDefault();
-    let newState = {
-      uniqueId: Math.random()
-        .toString(36)
-        .substr(2, 9)
-    };
-    // if chosen datetime is in the past, set to current datetime plus 1 second
+    let newState = {};
+    // if chosen datetime is in the past, set to current datetime plus 15
+    // seconds to allow the user to remove the post if it was accidental
     if (this.state.datetime < new Date())
-      newState.datetime = new Date(new Date().getTime() + 1000);
+      newState.datetime = new Date(new Date().getTime() + 15000);
+    newState.uniqueId = Math.random()
+      .toString(36)
+      .substr(2, 9);
     this.setState(newState, () => {
-      // send a copy of the state
       this.props.createPost(Object.assign({}, this.state));
       this.setState({
         caption: '',
@@ -66,7 +65,7 @@ export default class PostCreator extends React.Component {
           .substr(2, 9)
       },
       () => {
-        // create a new object with the component state
+        // create a new object with the current state
         this.props.createPostTemplate(Object.assign({}, this.state));
         this.setState({ templateName: '' });
       }
@@ -114,10 +113,10 @@ export default class PostCreator extends React.Component {
         ? false
         : true;
     const templateAddDisabled = this.state.templateName.length < 1;
+
     return (
       <div className="p-2">
         <div className="d-flex flex-wrap justify-content-end align-items-center">
-          <span className="mr-2 text-strong">Pick a date and time</span>
           <DateTimePicker
             required={true}
             value={this.state.datetime}
@@ -127,6 +126,17 @@ export default class PostCreator extends React.Component {
             disableClock={true}
             maxDate={this.maxDate}
             minDetail="decade"
+            calendarIcon={
+              <div className="d-flex align-items-center">
+                <img
+                  src="assets/icons/calendar3.svg"
+                  alt=""
+                  height="25"
+                  width="25"
+                  className="d-inline"
+                />
+              </div>
+            }
           />
         </div>
         <Form onSubmit={this.createPost}>
@@ -157,7 +167,6 @@ export default class PostCreator extends React.Component {
             maxFiles={this.props.maxUploads}
             className="mt-2"
           />
-
           <div className="d-flex justify-content-between align-items-center">
             <InputGroup className="mt-2">
               <FormControl

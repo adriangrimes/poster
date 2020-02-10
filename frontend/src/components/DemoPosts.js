@@ -1,23 +1,10 @@
-let DemoPosts = [
-  {
-    caption: 'Just updated my profile pic! What do you think?',
-    hashtags: '#hiking #naturelover #fitness',
-    datetime: new Date(new Date().getTime() - 180400000),
-    mediaUploads: [
-      { src: '/uploads/profilenew.jpg', alt: 'Your Uploaded Photo' }
-    ],
-    uniqueId: Math.random()
-      .toString(36)
-      .substr(2, 9),
-    templateName: '',
-    pendingPost: false
-  },
+const DemoPosts = [
   {
     caption:
       'Out on a hike today looking for some flowers to photograph, it feels good to get out of the city for a while!',
     hashtags: '#photography #hikelife #sunshine #flowers',
     datetime: new Date(new Date().getTime() - 80400000),
-    mediaUploads: [{ src: '/uploads/hike1.jpg', alt: 'Your Uploaded Photo' }],
+    mediaUploads: [{ src: '/uploads/Hike1.jpg', alt: 'Your Uploaded Photo' }],
     uniqueId: Math.random()
       .toString(36)
       .substr(2, 9),
@@ -51,7 +38,7 @@ let DemoPosts = [
   {
     caption: 'Another hike in our beautiful country! :heart:',
     hashtags: '#river #likeapainting #bridge #hiking #fitness ',
-    datetime: new Date(new Date().getTime() + 1200000),
+    datetime: new Date(new Date().getTime() + 400000),
     mediaUploads: [
       { src: '/uploads/hike2.jpg', alt: 'Your Uploaded Photo' },
       { src: '/uploads/hike3.jpg', alt: 'Your Uploaded Photo' }
@@ -115,7 +102,7 @@ let DemoPosts = [
     caption:
       'Found some crazy ruins on my hike today. Anyone know what this place is?',
     hashtags: '#weirdrocks #ancienttemple #whatisthisthing',
-    datetime: new Date(new Date().getTime() + 286400000),
+    datetime: new Date(new Date().getTime() + 6086400000),
     mediaUploads: [
       { src: '/uploads/hike7.jpg', alt: 'Your Uploaded Photo' },
       { src: '/uploads/hike8.jpg', alt: 'Your Uploaded Photo' },

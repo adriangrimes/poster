@@ -9,14 +9,30 @@ export default class ScrollToTopButton extends React.Component {
   }
 
   componentDidMount = () => {
-    var scrollComponent = this;
-    document.addEventListener('scroll', function(e) {
-      scrollComponent.toggleVisibility();
-    });
+    document.addEventListener(
+      'scroll',
+      this.throttle(this.toggleVisibility, 100)
+    );
+  };
+  componentWillUnmount = () => {
+    document.removeEventListener(
+      'scroll',
+      this.throttle(this.toggleVisibility, 100)
+    );
+  };
+
+  throttle = (functionToCall, wait) => {
+    let time = Date.now();
+    return () => {
+      if (time + wait - Date.now() < 0) {
+        functionToCall();
+        time = Date.now();
+      }
+    };
   };
 
   toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 400) {
       this.setState({
         isVisible: true
       });
@@ -37,16 +53,14 @@ export default class ScrollToTopButton extends React.Component {
   render() {
     const { isVisible } = this.state;
     return (
-      <div>
-        {isVisible && (
-          <img
-            className="scroll-to-top"
-            src="up.svg"
-            alt="Scroll to top"
-            onClick={this.scrollToTop}
-          />
-        )}
-      </div>
+      isVisible && (
+        <img
+          className="scroll-to-top"
+          onClick={this.scrollToTop}
+          src="assets/icons/up.svg"
+          alt="Scroll to top"
+        />
+      )
     );
   }
 }

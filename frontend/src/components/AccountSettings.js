@@ -18,12 +18,14 @@ export default function AccountSettings(props) {
             <Form.Control
               type="password"
               placeholder="Enter Twitter authentication"
+              disabled
             />
           </Form.Group>
           <Form.Group controlId="formConfirmTwitterAuthentication">
             <Form.Control
               type="password"
               placeholder="Confirm Twitter authentication"
+              disabled
             />
           </Form.Group>
         </Form>
@@ -31,10 +33,10 @@ export default function AccountSettings(props) {
         <Form>
           <Form.Group controlId="formNewEmail">
             <Form.Label>Change email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter new email" />
+            <Form.Control type="email" placeholder="Enter new email" disabled />
           </Form.Group>
           <Form.Group controlId="formConfirmNewEmail">
-            <Form.Control type="email" placeholder="Confirm email" />
+            <Form.Control type="email" placeholder="Confirm email" disabled />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -44,15 +46,30 @@ export default function AccountSettings(props) {
         <Form>
           <Form.Group controlId="formNewPassword">
             <Form.Label>Change password</Form.Label>
-            <Form.Control type="password" placeholder="Enter new password" />
+            <Form.Control
+              type="password"
+              placeholder="Enter new password"
+              disabled
+            />
           </Form.Group>
           <Form.Group controlId="formConfirmNewPassword">
-            <Form.Control type="password" placeholder="Confirm password" />
+            <Form.Control
+              type="password"
+              placeholder="Confirm password"
+              disabled
+            />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={saveChanges}>
-          Save Changes
-        </Button>
+        <div className="d-flex justify-content-end">
+          <Button
+            variant="primary"
+            className="rounded-pill "
+            onClick={saveChanges}
+            disabled
+          >
+            Save Changes
+          </Button>
+        </div>
       </div>
     </DashboardLayout>
   );

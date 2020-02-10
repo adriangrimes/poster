@@ -16,9 +16,11 @@ export default function Home(props) {
       <Row className="no-gutters justify-content-center p-4">
         <Col
           xs={12}
-          sm={10}
+          sm={8}
           md={6}
-          className="mb-5 p-4 border-secondary border-top border-bottom"
+          lg={5}
+          xl={4}
+          className="mb-5 p-4 border-secondary border-top border-bottom text-center"
         >
           <div>
             Poster is a simple social media planning app for micro businesses.
@@ -47,7 +49,7 @@ export default function Home(props) {
           </a>
         </small>
       </Row>
-      <img className="brand-logo" src="logogrey.svg" alt="" />
+      <img className="brand-logo" src="assets/icons/logogrey.svg" alt="" />
     </div>
   );
 }

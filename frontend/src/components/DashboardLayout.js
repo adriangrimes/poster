@@ -2,12 +2,11 @@ import React from 'react';
 import { AccountContext } from './AccountContext';
 
 import MenuBar from './MenuBar';
-import ContentHeader from './ContentHeader';
+import HeaderWithMenuButton from './HeaderWithMenuButton';
 
 export default class DashboardLayout extends React.Component {
   constructor(props) {
     super(props);
-    this.menuBarRef = React.createRef();
     this.state = {
       menuOpen: false
     };
@@ -24,27 +23,31 @@ export default class DashboardLayout extends React.Component {
     const isSmallScreen =
       window.innerWidth < process.env.REACT_APP_MENU_BREAKPOINT_PX;
     return (
-      <div className="app-wrapper mx-auto">
-        <AccountContext.Consumer>
-          {account => (
-            <MenuBar
+      <div className="">
+        <div className="app-wrapper mx-auto">
+          <AccountContext.Consumer>
+            {account => (
+              <MenuBar
+                isSmallScreen={isSmallScreen}
+                closeMenu={this.closeMenu}
+                menuOpen={this.state.menuOpen}
+                social={account.social}
+              >
+                {this.props.menuBarExtras &&
+                  this.props.menuBarExtras(this.closeMenu)}
+              </MenuBar>
+            )}
+          </AccountContext.Consumer>
+          <div
+            className={`app-content p-0 ${isSmallScreen ? '' : 'border-right'}`}
+          >
+            <HeaderWithMenuButton
               isSmallScreen={isSmallScreen}
-              closeMenu={this.closeMenu}
-              menuOpen={this.state.menuOpen}
-              social={account.social}
-            >
-              {this.props.menuBarExtras}
-            </MenuBar>
-          )}
-        </AccountContext.Consumer>
-        <div className="app-content p-0">
-          <ContentHeader
-            isSmallScreen={isSmallScreen}
-            toggleMenu={this.toggleMenu}
-            contentHeader={this.props.contentHeader}
-          />
-          <div className={isSmallScreen ? '' : 'border-right'}>
-            {this.props.children}
+              toggleMenu={this.toggleMenu}
+              contentHeader={this.props.contentHeader}
+            />
+            <div>{this.props.children}</div>
+            <div className="py-5"></div>
           </div>
         </div>
       </div>

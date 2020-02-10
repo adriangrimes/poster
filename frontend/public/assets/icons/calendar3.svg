@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="25"
+   height="25"
+   viewBox="0 0 6.6145833 6.6145833"
+   version="1.1"
+   id="svg916"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="calander3.svg">
+  <defs
+     id="defs910" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.4"
+     inkscape:cx="20.576672"
+     inkscape:cy="16.12395"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1509"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata913">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-290.38541)">
+    <g
+       id="g1509"
+       transform="translate(333.43524,173.73935)">
+      <g
+         id="g1557"
+         transform="matrix(0.21736508,0,0,0.21736508,-248.21345,71.71154)"
+         style="stroke-width:4.60055542">
+        <rect
+           style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:299.03607178;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+           id="rect1495"
+           width="28.814466"
+           height="1.085642"
+           x="-391.10742"
+           y="217.71962"
+           ry="0.54282099" />
+        <path
+           inkscape:connector-curvature="0"
+           id="rect1511"
+           d="m -387.02948,208.98238 c -2.79108,0 -5.03805,2.1267 -5.03805,4.76837 v 18.63537 c 0,2.64167 2.24697,4.76836 5.03805,4.76836 h 20.33146 c 2.79107,0 5.03796,-2.12669 5.03796,-4.76836 v -18.63537 c 0,-2.64167 -2.24689,-4.76837 -5.03796,-4.76837 z m 0.0145,1.81031 h 20.232 c 1.76853,0 3.19227,1.34753 3.19227,3.02139 v 18.61694 c 0,1.67386 -1.42374,3.02139 -3.19227,3.02139 h -20.232 c -1.76852,0 -3.19226,-1.34753 -3.19226,-3.02139 v -18.61694 c 0,-1.67386 1.42374,-3.02139 3.19226,-3.02139 z"
+           style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:50.60610199;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+        <rect
+           transform="rotate(90)"
+           ry="0.87349349"
+           y="382.04431"
+           x="207.25908"
+           height="1.746987"
+           width="5.300046"
+           id="rect829"
+           style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:299.03607178;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+        <rect
+           style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:299.03607178;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+           id="rect831"
+           width="5.4499006"
+           height="1.746987"
+           x="207.25908"
+           y="369.96359"
+           ry="0.87349349"
+           transform="rotate(90)" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -23,8 +23,8 @@ body {
   background-color: $secondary;
   color: white;
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 5%;
+  right: 5%;
   animation: fadeIn 300ms ease-in-out 300ms both;
   cursor: pointer;
   border-radius: $border-radius;
@@ -111,7 +111,6 @@ body {
 
 .app-wrapper {
   width: 850px;
-  margin-bottom: 6.5rem;
 }
 @media (max-width: 890px) {
   .app-wrapper {
@@ -122,6 +121,7 @@ body {
 .app-content {
   margin-left: 250px;
   min-height: 100vh;
+  background-color: #fff;
 }
 @media (max-width: 600px) {
   .app-content {
@@ -132,13 +132,13 @@ body {
 /* Menu Bar */
 
 .menu-bar {
-  background-color: #fff;
   position: fixed;
   top: 0;
   min-height: 100vh;
   width: 250px;
   transition: all 0.2s;
   z-index: 6;
+  background-color: #fff;
 }
 
 .menu-bar.active {
@@ -191,17 +191,38 @@ body {
 
 .menu-bar-link {
   font-size: 1.2rem;
+  line-height: 1;
+  background-color: transparent;
 }
 .menu-bar-link:hover {
-  background-color: $gray-100;
+  background-color: $extra-faded-secondary;
 }
 
 .twitter-handles {
   line-height: 1.25;
 }
 
-.template-add-instructions {
+.post-template-manager {
+}
+
+.post-template-wrapper {
+  overflow-y: auto;
+}
+@media (max-width: 400px) {
+  .post-template-wrapper {
+    max-height: 30vh;
+  }
+}
+
+.template-instructions {
   cursor: default;
+}
+
+.template-remove-button {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #fff;
+  flex: 0 0 auto;
 }
 
 /* Scheduler */
@@ -209,7 +230,6 @@ body {
 .file-uploader {
   min-height: 90px;
   width: 100%;
-  // max-width: 303px;
   border: 3px dashed $secondary;
   border-radius: $border-radius;
   cursor: pointer;
@@ -256,7 +276,7 @@ body {
   padding: 0.25rem;
   border-radius: $border-radius;
   border: 1px solid #dee2e6 !important;
-  width: 250px;
+  min-width: 250px;
 }
 .react-datetime-picker__calendar {
   z-index: 5 !important;
@@ -319,6 +339,9 @@ body {
   background-color: #f5f9ffff;
 }
 
+.hashtags {
+  color: rgb(27, 149, 224);
+}
 .hashtags:hover {
   background-color: #f5f9ffff;
 }
@@ -334,6 +357,11 @@ body {
 .delete-post-button:hover {
   color: red;
 }
+@media (max-width: 400px) {
+  .delete-post-button {
+    font-size: 1.5rem;
+  }
+}
 
 .now-line {
   line-height: 1;
@@ -342,3 +370,7 @@ body {
 /* Account Settings */
 
 /* Help */
+
+.back-button:hover {
+  text-decoration: underline;
+}

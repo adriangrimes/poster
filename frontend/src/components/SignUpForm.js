@@ -70,6 +70,7 @@ export default class SignUpForm extends React.Component {
             autoComplete="username"
             value={this.state.email}
             onChange={this.handleInputChange}
+            disabled
           />
         </Form.Group>
         <Form.Group controlId="formSignupPassword">
@@ -80,6 +81,7 @@ export default class SignUpForm extends React.Component {
             autoComplete="current-password"
             value={this.state.password}
             onChange={this.handleInputChange}
+            disabled
           />
         </Form.Group>
         <Form.Group controlId="formSignupConfirmPassword">
@@ -90,6 +92,7 @@ export default class SignUpForm extends React.Component {
             autoComplete="current-password"
             value={this.state.confirmPassword}
             onChange={this.handleInputChange}
+            disabled
           />
         </Form.Group>
         <Button
@@ -97,6 +100,7 @@ export default class SignUpForm extends React.Component {
           block
           type="submit"
           className="branded-gradient text-light"
+          disabled
         >
           Sign up
         </Button>

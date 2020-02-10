@@ -32,9 +32,15 @@ export default function PostList({
     }
     return null;
   });
-  if (postsToRender.length) {
+
+  if (postsToRender.length > 1) {
+    postsToRender.push(
+      <div className="py-3 text-center text-muted" key="end-of-posts">
+        End of scheduled posts
+      </div>
+    );
     return postsToRender;
   } else {
-    return null;
+    return <div className="py-3 text-center text-muted">Add a post above</div>;
   }
 }
