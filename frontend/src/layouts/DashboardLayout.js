@@ -12,11 +12,24 @@ export default class DashboardLayout extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    window.addEventListener('resize', this.checkMenuState);
+  };
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.checkMenuState);
+  };
+
   toggleMenu = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
   };
   closeMenu = () => {
     this.setState({ menuOpen: false });
+  };
+
+  checkMenuState = () => {
+    if (window.innerWidth < process.env.REACT_APP_MENU_BREAKPOINT_PX) {
+      this.closeMenu();
+    }
   };
 
   render() {
