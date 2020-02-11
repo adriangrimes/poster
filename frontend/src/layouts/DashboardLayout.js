@@ -1,5 +1,5 @@
 import React from 'react';
-import { AccountContext } from './AccountContext';
+import { AccountContext } from './../contexts/AccountContext';
 
 import MenuBar from './MenuBar';
 import HeaderWithMenuButton from './HeaderWithMenuButton';
@@ -46,7 +46,7 @@ export default class DashboardLayout extends React.Component {
               toggleMenu={this.toggleMenu}
               contentHeader={this.props.contentHeader}
             />
-            <div>{this.props.children}</div>
+            <main>{this.props.children}</main>
             <div className="py-5"></div>
           </div>
         </div>

@@ -127,7 +127,10 @@ export default class PostCreator extends React.Component {
             maxDate={this.maxDate}
             minDetail="decade"
             calendarIcon={
-              <div className="d-flex align-items-center">
+              <div
+                className="d-flex align-items-center"
+                aria-label="open calendar"
+              >
                 <img
                   src="assets/icons/calendar3.svg"
                   alt=""
@@ -147,6 +150,7 @@ export default class PostCreator extends React.Component {
               as="textarea"
               rows="3"
               placeholder="What would you like to post?"
+              aria-label="main post text"
               value={this.state.caption}
               onChange={this.handleInputChange}
             />
@@ -156,6 +160,7 @@ export default class PostCreator extends React.Component {
               name="hashtags"
               type="text"
               placeholder="#optional #additional #hashtags"
+              aria-label="optional additional hashtags"
               value={this.state.hashtags}
               onChange={this.handleInputChange}
             />
@@ -174,8 +179,7 @@ export default class PostCreator extends React.Component {
                 onChange={this.handleInputChange}
                 name="templateName"
                 placeholder="Template name"
-                aria-label="Template name"
-                aria-describedby="Template name"
+                aria-label="Post template name"
                 className="template-name-field"
               />
               <InputGroup.Append>

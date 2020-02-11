@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import MainLayout from './MainLayout';
+import MainLayout from './../../layouts/MainLayout';
 
 export default function NotFound(props) {
   return (

@@ -8,7 +8,7 @@ export default function HeaderWithMenuButton({
   contentHeader
 }) {
   return (
-    <div className="d-flex align-items-center justify-content-start branded-gradient text-light m-0">
+    <header className="d-flex align-items-center justify-content-start branded-gradient text-light m-0">
       {isSmallScreen && (
         <Button
           className="menu-button d-flex justify-content-center align-items-center p-3 border-0"
@@ -21,7 +21,7 @@ export default function HeaderWithMenuButton({
           />
         </Button>
       )}
-      <h5 className="m-0 pl-3 py-3">{contentHeader}</h5>
-    </div>
+      <h1 className="m-0 pl-3 py-3">{contentHeader}</h1>
+    </header>
   );
 }

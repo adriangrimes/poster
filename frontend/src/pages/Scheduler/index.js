@@ -1,14 +1,14 @@
 import React from 'react';
-import { AccountContext } from './AccountContext';
+import { AccountContext } from './../../contexts/AccountContext';
 
-import DashboardLayout from './DashboardLayout';
+import DashboardLayout from './../../layouts/DashboardLayout';
 import PostCreator from './PostCreator';
 import PostList from './PostList';
 import PostTemplateManager from './PostTemplateManager';
 import PostTemplate from './PostTemplate';
 
 // Demo posts
-import DemoPosts from './DemoPosts';
+import DemoPosts from './../../staticdata/DemoPosts';
 
 export default class Scheduler extends React.Component {
   constructor(props) {
@@ -112,7 +112,7 @@ export default class Scheduler extends React.Component {
           templateToApply={this.state.templateToApply}
         />
         <div className="d-flex align-items-center justify-content-start branded-gradient text-light m-0 border-bottom">
-          <h6 className="m-0 pl-3 py-2">Your Posts</h6>
+          <h2 className="m-0 pl-3 py-2">Your Posts</h2>
         </div>
         <PostList
           scheduledPosts={this.state.scheduledPosts}

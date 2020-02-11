@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import MainLayout from './MainLayout';
 
-import HelpTopics from './HelpTopics';
+import HelpTopics from './../../staticdata/HelpTopics';
 
+import MainLayout from './../../layouts/MainLayout';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -98,6 +98,7 @@ export default function Help(props) {
                 name="email"
                 type="text"
                 placeholder="Email address"
+                aria-label="Enter your email"
                 value={email}
                 onChange={handleInputChange}
               />
@@ -109,6 +110,7 @@ export default function Help(props) {
                 as="textarea"
                 rows="4"
                 placeholder="What would you like to say?"
+                aria-label="Enter your message to us"
                 value={message}
                 onChange={handleInputChange}
               />

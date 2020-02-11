@@ -59,6 +59,7 @@ export default class ScrollToTopButton extends React.Component {
           onClick={this.scrollToTop}
           src="assets/icons/up.svg"
           alt="Scroll to top"
+          aria-hidden="true"
         />
       )
     );

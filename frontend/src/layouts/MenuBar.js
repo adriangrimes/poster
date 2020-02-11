@@ -12,7 +12,7 @@ export default function MenuBar({
   children
 }) {
   return (
-    <div
+    <nav
       id="menu-bar"
       className={`menu-bar border-right ${menuOpen ? 'active' : ''}`}
     >
@@ -41,7 +41,7 @@ export default function MenuBar({
         </div>
       </div>
 
-      <nav className="my-sm-4">
+      <div className="my-sm-4">
         <ListGroup variant="flush">
           <NavLink to="/scheduler" className="text-decoration-none">
             <ListGroup.Item className="menu-bar-link d-flex align-items-center rounded-left">
@@ -92,9 +92,9 @@ export default function MenuBar({
             </ListGroup.Item>
           </NavLink>
         </ListGroup>
-      </nav>
+      </div>
 
       {children}
-    </div>
+    </nav>
   );
 }

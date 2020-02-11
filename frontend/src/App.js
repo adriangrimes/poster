@@ -1,12 +1,12 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollToTop } from './helpers/ScrollToTop';
 
-import Home from './components/Home';
-import Scheduler from './components/Scheduler';
-import AccountSettings from './components/AccountSettings';
-import Help from './components/Help';
-import NotFound from './components/NotFound';
+import Home from './pages/Home';
+import Scheduler from './pages/Scheduler';
+import AccountSettings from './pages/AccountSettings';
+import Help from './pages/Help';
+import NotFound from './pages/NotFound';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 export default class App extends React.Component {

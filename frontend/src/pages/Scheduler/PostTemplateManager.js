@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 export default function PostTemplateManager(props) {
   return (
     <div className="post-template-manager rounded p-2 m-2 text-light bg-secondary">
-      <h6 className="text-center pt-2 pb-1">Your Templates</h6>
+      <h2 className="text-center pt-2 pb-1">Your Templates</h2>
       <div className="post-template-wrapper">
         {!props.children.length && (
           <Button

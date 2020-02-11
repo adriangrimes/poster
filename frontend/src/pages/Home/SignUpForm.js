@@ -2,7 +2,7 @@ import React from 'react';
 // import { navigate } from '@reach/router';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import AlertDismissible from './AlertDismissible';
+import AlertDismissible from './../../components/AlertDismissible';
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -67,7 +67,8 @@ export default class SignUpForm extends React.Component {
             name="email"
             type="text"
             placeholder="Email"
-            autoComplete="username"
+            autoComplete="email"
+            aria-label="sign up email"
             value={this.state.email}
             onChange={this.handleInputChange}
             disabled
@@ -79,6 +80,7 @@ export default class SignUpForm extends React.Component {
             type="password"
             placeholder="Password"
             autoComplete="current-password"
+            aria-label="sign up password"
             value={this.state.password}
             onChange={this.handleInputChange}
             disabled
@@ -90,6 +92,7 @@ export default class SignUpForm extends React.Component {
             type="password"
             placeholder="Confirm password"
             autoComplete="current-password"
+            aria-label="sign up confirm password"
             value={this.state.confirmPassword}
             onChange={this.handleInputChange}
             disabled

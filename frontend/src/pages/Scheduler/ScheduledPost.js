@@ -81,9 +81,7 @@ export default class ScheduledPost extends React.Component {
     return (
       <div
         className={`feed-post border-bottom p-2 ${
-          this.props.post.pendingPost
-            ? 'feed-post-gradient border-white'
-            : 'text-muted'
+          this.props.post.pendingPost ? 'feed-post-gradient border-white' : ''
         }`}
       >
         <Button
@@ -108,10 +106,7 @@ export default class ScheduledPost extends React.Component {
               <strong>{this.props.socialUsername}</strong>&nbsp;
               <span className="text-muted">{this.props.socialHandle}</span>
             </div>
-            <p
-              className={`m-0 pb-3 ${!this.props.post.pendingPost &&
-                'text-muted'}`}
-            >
+            <p className={`m-0 pb-3`}>
               <span
                 name="caption"
                 className="caption"

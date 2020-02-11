@@ -3,7 +3,7 @@ import { navigate } from '@reach/router';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import AlertDismissible from './AlertDismissible';
+import AlertDismissible from './../../components/AlertDismissible';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -55,7 +55,8 @@ export default class LoginForm extends React.Component {
             name="email"
             type="email"
             placeholder="Email"
-            autoComplete="username"
+            autoComplete="email"
+            aria-label="Log in email"
             value={this.state.email}
             onChange={this.handleInputChange}
           />
@@ -66,6 +67,7 @@ export default class LoginForm extends React.Component {
             type="password"
             placeholder="Password"
             autoComplete="current-password"
+            aria-label="Log in password"
             value={this.state.password}
             onChange={this.handleInputChange}
           />
