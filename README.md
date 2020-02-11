@@ -1,3 +1,7 @@
+# Poster
+
+A simple social media post scheduling and planning app for micro businesses.
+
 ## Available Scripts
 
 In the project directory, you can run:

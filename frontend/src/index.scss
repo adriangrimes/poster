@@ -3,6 +3,11 @@ $border-radius: 0.15rem;
 /* Colors */
 $primary: #3d3041;
 $secondary: #8a4f58;
+$react-datetime-picker-border-color: #dee2e6;
+$upload-thumbnail-remove-button-color: #00000088;
+$caption-hover-background-color: #f5f9ffff;
+$hashtags-font-color: rgb(27, 149, 224);
+$hashtags-hover-background-color: #f5f9ffff;
 
 $faded-gradient-alpha: 0.2;
 $faded-primary: rgba($primary, $faded-gradient-alpha);
@@ -16,6 +21,8 @@ $extra-faded-secondary: rgba($secondary, $extra-faded-gradient-alpha);
 @import "~bootstrap/scss/bootstrap.scss";
 
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
   overflow-y: scroll;
 }
 
@@ -25,6 +32,10 @@ h1 {
 
 h2 {
   font-size: 1rem;
+}
+
+h6 {
+  font-weight: bold;
 }
 
 .scroll-to-top {
@@ -112,7 +123,7 @@ h2 {
 .main-content {
   max-width: 600px;
   min-height: 100vh;
-  background-color: $white;
+  background-color: #fff;
 }
 
 /* DashboardLayout */
@@ -191,7 +202,7 @@ h2 {
   right: 0;
   height: 2rem;
   width: 2rem;
-  background-color: #ffffff;
+  background-color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 0;
@@ -208,9 +219,6 @@ h2 {
 
 .twitter-handles {
   line-height: 1.25;
-}
-
-.post-template-manager {
 }
 
 .post-template-wrapper {
@@ -235,6 +243,17 @@ h2 {
 
 /* Scheduler */
 
+/* React DateTimePicker overrides */
+.react-datetime-picker__wrapper {
+  padding: 0.25rem;
+  border-radius: $border-radius;
+  border: 1px solid $react-datetime-picker-border-color !important;
+  min-width: 250px;
+}
+.react-datetime-picker__calendar {
+  z-index: 5 !important;
+}
+
 .file-uploader {
   min-height: 90px;
   width: 100%;
@@ -251,7 +270,7 @@ h2 {
   color: #fff;
   font-size: 0.75rem;
   line-height: 0;
-  background-color: #00000088;
+  background-color: $upload-thumbnail-remove-button-color;
   height: 40%;
   width: 40%;
   position: absolute;
@@ -276,20 +295,6 @@ h2 {
   height: 4rem;
 }
 
-/* React DateTimePicker overrides */
-// .react-datetime-picker {
-//   width: 100%;
-// }
-.react-datetime-picker__wrapper {
-  padding: 0.25rem;
-  border-radius: $border-radius;
-  border: 1px solid #dee2e6 !important;
-  min-width: 250px;
-}
-.react-datetime-picker__calendar {
-  z-index: 5 !important;
-}
-
 .template-name-field {
   max-width: 200px;
 }
@@ -302,7 +307,6 @@ h2 {
 
 .feed-post {
   position: relative;
-  color: #4b4b4b;
   line-height: 1.5;
   word-break: break-word;
 }
@@ -344,14 +348,14 @@ h2 {
 }
 
 .caption:hover {
-  background-color: #f5f9ffff;
+  background-color: $caption-hover-background-color;
 }
 
 .hashtags {
-  color: rgb(27, 149, 224);
+  color: $hashtags-font-color;
 }
 .hashtags:hover {
-  background-color: #f5f9ffff;
+  background-color: $hashtags-hover-background-color;
 }
 
 .delete-post-button {

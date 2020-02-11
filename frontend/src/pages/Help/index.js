@@ -69,6 +69,9 @@ export default function Help(props) {
           action
           href="#contact-us"
           className="mt-2 pl-3 p-2 bg-gray rounded border-0"
+          onClick={() =>
+            window.history.replaceState(undefined, undefined, '#contact-us')
+          }
         >
           <strong>
             <u>Still have questions? Contact us!</u>
