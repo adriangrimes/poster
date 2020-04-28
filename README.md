@@ -1,6 +1,6 @@
 # Poster
 
-A simple social media post scheduling and planning app for micro businesses.
+A simple social media post scheduling and planning app for micro businesses. Made with React.
 
 UI only demo:
 [https://posterdemo.solversion.com/](https://posterdemo.solversion.com/)
